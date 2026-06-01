@@ -1,24 +1,28 @@
+// main.js
+
 // Seleciona todos os botões e abas
 const botoes = document.querySelectorAll(".botao");
 const abas = document.querySelectorAll(".aba-conteudo");
 
-// Adiciona funcionalidade de alternar abas
+// Função para alternar abas ao clicar nos botões
 botoes.forEach((botao, i) => {
     botao.addEventListener("click", () => {
+        // Remove classe "ativo" de todos os botões e abas
         botoes.forEach(b => b.classList.remove("ativo"));
         abas.forEach(a => a.classList.remove("ativo"));
 
+        // Adiciona classe "ativo" ao botão e aba clicados
         botao.classList.add("ativo");
         abas[i].classList.add("ativo");
     });
 });
 
-// Datas correspondentes a cada aba (de acordo com o HTML corrigido)
+// Datas correspondentes a cada aba (em ordem)
 const datasObjetivos = [
     new Date("2026-08-07T00:00:00"), // Aba 0 - Ir para o Santuário de Aparecida
     new Date("2026-10-19T00:00:00"), // Aba 1 - Completar um ano de namoro
     new Date("2026-12-31T00:00:00"), // Aba 2 - Até o fim do ano (2026)
-    new Date("2026-12-01T00:00:00"), // Aba 3 - Montar outra bancada
+    new Date("2026-12-31T00:00:00"), // Aba 3 - Montar outra bancada
     new Date("2027-06-01T00:00:00")  // Aba 4 - Montar o projeto no meu gol
 ];
 
@@ -53,5 +57,5 @@ function atualizaCronometros() {
 }
 
 // Inicia o cronômetro
-atualizaCronometros();
-setInterval(atualizaCronometros, 1000);
+atualizaCronometros(); // Atualiza imediatamente
+setInterval(atualizaCronometros, 1000); // Atualiza a cada segundo
